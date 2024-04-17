@@ -36,7 +36,21 @@ namespace ZooDemo
             ShowZoos();
             ShowAllAnimals();
             GetUserslist();
-            
+            StartClock();
+        }
+        private void StartClock()
+        {
+            // Update the time every second
+            System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
+            dispatcherTimer.Interval = TimeSpan.FromSeconds(1);
+            dispatcherTimer.Start();
+        }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            // Update the Text property of the TextBlock with the current time
+            currentTimeTextBlock.Text = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
         private void ShowZoos()
         {

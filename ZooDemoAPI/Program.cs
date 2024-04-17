@@ -5,8 +5,18 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+#region Configure CORS
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CustomPolicy", x => x.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+});
+
+#endregion
+
 builder.Services.AddDbContext<ZooDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 
 builder.Services.AddControllers();
@@ -22,6 +32,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseCors("CustomPolicy");
 
 app.UseHttpsRedirection();
 

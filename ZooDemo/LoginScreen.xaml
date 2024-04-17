@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZooDemo"
         mc:Ignorable="d"
-        Title="LoginScreen" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="LoginScreen" Height="450" Width="800" WindowStartupLocation="CenterScreen" Background="#607D8B" FontFamily="Times New Roman">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -36,11 +36,26 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="1" Grid.Column="3" Content="Login Page" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Showcard Gothic" FontSize="16"/>
-        <Label Grid.Row="5" Grid.Column="1" Content="User Name" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Showcard Gothic" FontSize="16"/>
-        <Label Grid.Row="7" Grid.Column="1" Content="Password" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Showcard Gothic" FontSize="16"/>
-        <TextBox Name="userTxt" Grid.Row="5" Grid.Column="3"/>
-        <PasswordBox Name="pwdTxt" Grid.Row="7" Grid.Column="3" PasswordChanged="OnPasswordChanged"/>
-        <Button Name ="LoginButton" Grid.Column="3" Grid.Row="9" Content="Login" Click="LoginButton_Click" FontFamily="Showcard Gothic" FontSize="16" IsEnabled="False" />
+        <Label Grid.Row="1" Grid.Column="3" Content="Login Page" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="16"/>
+        <Label Grid.Row="5" Grid.Column="1" Content="User Name" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="16"/>
+        <Label Grid.Row="7" Grid.Column="1" Content="Password" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" FontFamily="Times New Roman" FontSize="16"/>
+        <Border BorderBrush="Gray" Grid.Row="5" Grid.Column="3" BorderThickness="1" CornerRadius="5">
+            <TextBox Name="userTxt" Grid.Row="5" Grid.Column="3" VerticalContentAlignment="Center" Background="LightGray"/>
+        </Border>
+        <Border BorderBrush="Gray" Grid.Row="7" Grid.Column="3" BorderThickness="1" CornerRadius="5">
+            <PasswordBox Name="pwdTxt" Grid.Row="7" Grid.Column="3" PasswordChanged="OnPasswordChanged" VerticalContentAlignment="Center" Background="LightGray"/>
+            </Border>
+        <Button Name ="LoginButton" Grid.Column="3" Grid.Row="9" Content="Login" Click="LoginButton_Click" FontFamily="Times New Roman" FontSize="16" IsEnabled="False" >
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="FontWeight" Value="ExtraBold"/>
+                            <Setter Property="Foreground" Value="ForestGreen"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style> 
+        </Button>
     </Grid>
 </Window>

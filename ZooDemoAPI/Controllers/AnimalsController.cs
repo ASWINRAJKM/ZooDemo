@@ -29,7 +29,7 @@ namespace ZooDemoAPI.Controllers
         }
 
         // GET: api/Animals/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}")] 
         public async Task<ActionResult<Animal>> GetAnimal(int id)
         {
             var animal = await _context.Animals.FindAsync(id);

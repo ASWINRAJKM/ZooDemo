@@ -6,18 +6,27 @@
         xmlns:local="clr-namespace:ZooDemo"
         mc:Ignorable="d"
         Title="Zoo Manager" Height="450" Width="640" WindowStartupLocation="CenterScreen">
-    
-    
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="visibilityconverter" />
+        <Style TargetType="Button" x:Key="DeleteStyle">
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Foreground" Value="#F52549"/>
+            <Setter Property="Background" Value="#FFF5E7E8"/>
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+    </Window.Resources>
+
     <TabControl Name="tbMain" TabStripPlacement="Top">
-        <TabItem Name="tbHome" Header="Home">
+        <TabItem Name="tbHome" Header="Home" FontFamily="Times New Roman">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="4*"/>
                     <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="11*"/>
                     <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="11*"/>
                     <ColumnDefinition Width="10"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
@@ -39,24 +48,24 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
-                <Label Content="Zoo List" Grid.Column="1" Grid.Row="1" FontFamily="Showcard Gothic" Background="#FFEDF4F2" Foreground="#FF31473A" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label Content="Associated Animals List" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2"  FontFamily="Showcard Gothic" Background="#FFEDF4F2" Foreground="#FF31473A" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <ListBox Name="listZoos" Grid.Column="1" Grid.Row="3" Grid.RowSpan="5"  SelectionChanged="listZoos_SelectionChanged" FontSize="12" FontWeight="Bold"/>
-                <ListBox Name="listAssociatedAnimals" Grid.Column="3" Grid.Row="3" Grid.RowSpan="5" FontSize="12" FontWeight="Bold"/>
-                <ListBox Name="listAnimals" Grid.Column="5" Grid.Row="3" Grid.RowSpan="11"  SelectionChanged="listAnimals_SelectionChanged" FontSize="12" FontWeight="Bold"/>
-                <Button Content="Delete Zoo" Grid.Column="1" Grid.Row="9" Click="DeleteZoo_Click" FontFamily="Showcard Gothic" Foreground="#F52549" Background="#FFF5E7E8" FontSize="14"/>
-                <Button Content="Remove Animal" Grid.Column="3" Grid.Row="9" Click="RemoveAnimal_Click" FontFamily="Showcard Gothic" Foreground="#F52549" Background="#FFF5E7E8" FontSize="14"/>
-                <Button Content="Add Zoo" Grid.Column="1" Grid.Row="13" Click="AddZoo_Click" FontFamily="Showcard Gothic" Foreground="#FF31473A" Background="#FFEDF4F2" FontSize="14"/>
-                <Button Content="Update Zoo" Grid.Column="1" Grid.Row="15" Click="UpdateZoo_Click" FontFamily="Showcard Gothic" Foreground="#00246B" Background="#FFFBF3CF" FontSize="14"/>
-                <Button Content="Add Animal" Grid.Column="3" Grid.Row="13" Click="AddAnimal_Click" FontFamily="Showcard Gothic" Foreground="#FF31473A" Background="#FFEDF4F2" FontSize="14"/>
-                <Button Content="Update Animal" Grid.Column="3" Grid.Row="15" Click="UpdateAnimal_Click" FontFamily="Showcard Gothic" Foreground="#00246B" Background="#FFFBF3CF" FontSize="14"/>
-                <Button Content="Delete Animal" Grid.Column="5" Grid.Row="15" Click="DeleteAnimal_Click" FontFamily="Showcard Gothic" Foreground="#F52549" Background="#FFF5E7E8" FontSize="14"/>
-                <Button Content="Add Animal to Zoo" Grid.Column="5" Grid.Row="1" Click="AddAnimaltoZoo_Click" FontFamily="Showcard Gothic" Foreground="#FF31473A" Background="#FFEDF4F2" FontSize="14"/>
-                <TextBox Name="InputText"  Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="3" TextWrapping="Wrap" Text=""/>
-                <Button Grid.Column="5" Grid.Row="0" Content="Logout" Click="Logout_Click" Background="#E53935" Foreground="#FFFFFF" BorderBrush="#E53935" BorderThickness="1" Cursor="Hand"/>
+                <Label Content="Zoo List" Grid.Column="1" Grid.Row="1" FontFamily="Times New Roman" Background="#FFEDF4F2" Foreground="#FF31473A" FontSize="15" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,10" Grid.RowSpan="2"/>
+                <Label Content="Associated Animals List" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2"  FontFamily="Times New Roman" Background="#FFEDF4F2" Foreground="#FF31473A" FontSize="14" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,10" Grid.RowSpan="2"/>
+                <ListBox Name="listZoos" Grid.Column="1" Grid.Row="3" Grid.RowSpan="5"  SelectionChanged="listZoos_SelectionChanged" FontSize="12" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                <ListBox Name="listAssociatedAnimals" Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" FontSize="12" FontWeight="Bold"/>
+                <ListBox Name="listAnimals" Grid.Column="6" Grid.Row="3" Grid.RowSpan="12"  SelectionChanged="listAnimals_SelectionChanged" FontSize="12" FontWeight="Bold" Margin="0,0,0,10"/>
+                <Button Content="Delete Zoo" Grid.Column="1" Grid.Row="8" Click="DeleteZoo_Click" Style="{StaticResource DeleteStyle}" Grid.ColumnSpan="2" Margin="0,10,0,10" Grid.RowSpan="3"  />
+                <Button Content="Remove Animal" Grid.Column="4" Grid.Row="8" Click="RemoveAnimal_Click" Style="{StaticResource DeleteStyle}" Margin="0,10,0,10" Grid.RowSpan="3"/>
+                <Button Content="Add Zoo" Grid.Column="1" Grid.Row="12" Click="AddZoo_Click" FontFamily="Times New Roman" Foreground="#FF31473A" Background="#FFEDF4F2" FontSize="14" Grid.ColumnSpan="2" Margin="0,10,0,10" Grid.RowSpan="3"/>
+                <Button Content="Update Zoo" Grid.Column="1" Grid.Row="15" Click="UpdateZoo_Click" FontFamily="Times New Roman" Foreground="#00246B" Background="#FFFBF3CF" FontSize="14" Grid.ColumnSpan="2"/>
+                <Button Content="Add Animal" Grid.Column="4" Grid.Row="12" Click="AddAnimal_Click" FontFamily="Times New Roman" Foreground="#FF31473A" Background="#FFEDF4F2" FontSize="14" Margin="0,10,0,10" Grid.RowSpan="3"/>
+                <Button Content="Update Animal" Grid.Column="4" Grid.Row="15" Click="UpdateAnimal_Click" FontFamily="Times New Roman" Foreground="#00246B" Background="#FFFBF3CF" FontSize="14"/>
+                <Button Content="Delete Animal" Grid.Column="6" Grid.Row="15" Click="DeleteAnimal_Click" Style="{StaticResource DeleteStyle}"/>
+                <Button Content="Add Animal to Zoo" Grid.Column="6" Grid.Row="1" Click="AddAnimaltoZoo_Click" FontFamily="Times New Roman" Foreground="#FF31473A" Background="#FFEDF4F2" FontSize="14" Margin="0,0,0,10" Grid.RowSpan="2"/>
+                <TextBox Name="InputText"  Grid.Column="1" Grid.Row="11" Grid.ColumnSpan="4" TextWrapping="Wrap" Text="" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Button Grid.Column="6" Grid.Row="0" Content="Logout" Click="Logout_Click" FontFamily="Times New Roman" Background="#E53935" Foreground="#FFFFFF" BorderBrush="#E53935" BorderThickness="1" Cursor="Hand"/>
             </Grid>
         </TabItem>
-        <TabItem Name="tbZoo" Header="Zoo">
+        <TabItem Name="tbZoo" Header="Zoo" FontFamily="Times New Roman">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
@@ -100,7 +109,7 @@
                 <Button Grid.Column="6" Grid.Row="0" Content="Logout" Click="Logout_Click" Background="#E53935" Foreground="#FFFFFF" BorderBrush="#E53935" BorderThickness="1" Cursor="Hand" />
             </Grid>
         </TabItem>
-        <TabItem Name="tbAdmin" Header="Adminstration">
+        <TabItem Name="tbAdmin" Header="Adminstration" FontFamily="Times New Roman">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="10"/>
@@ -141,7 +150,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <ComboBox Name="ItemSelected"  ItemsSource="{Binding Permissions}" SelectedItem="{Binding Permission}" SelectionChanged="AccessComboBoxChange"/>
-                                        
+
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
@@ -156,6 +165,8 @@
                     </DataGrid>
                 </StackPanel>
                 <Button Grid.Column="6" Grid.Row="0" Content="Logout" Click="Logout_Click" Background="#E53935" Foreground="#FFFFFF" BorderBrush="#E53935" BorderThickness="1" Cursor="Hand"/>
+                <CheckBox Name="CBox" Grid.Column="2" Grid.Row="0" Content="Time" IsChecked="True"/>
+                <TextBlock Name="currentTimeTextBlock" Grid.Column="4" Grid.Row="0" Visibility="{Binding ElementName=CBox,Path=IsChecked, Converter={StaticResource visibilityconverter}}" />
             </Grid>
         </TabItem>
     </TabControl>
